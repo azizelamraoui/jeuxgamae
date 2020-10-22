@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<title>x-d game</title>
+	<style type="text/css">
+		.wrapper
+		{
+          width:400px;
+          height:400px;
+          margin: 80px auto;
+		}
+		.square
+		{
+			width:120px;
+			height:120px;
+			background: red;
+			margin:5px;
+			font-size:127px;
+			text-align: center;
+			font-family: sans-serif;
+			color:blue;
+			cursor: pointer;
+			float: left;
+
+		}
+	</style>
+
+</head>
+<body>
+	<script type="text/javascript">
+	
+	var turn=true;
+	var squeres=[];
+	function resst(A,B,C)
+	{
+       document.getElementById('A'+A).style.color="#000";
+        document.getElementById('A'+B).style.color="#000";
+         document.getElementById('A'+C).style.color="#000";
+	}
+	 function chekwinner()
+	 {
+       for(i=1;i<=9;i++)
+       {
+       	squeres[i]=document.getElementById('A'+i).innerHTML;
+       }
+       if(squeres[1]==squeres[2] && squeres[2]==squeres[3] && squeres[1]!="")
+       {
+       	alert('plyer '+squeres[1]+' barvo');
+       	resst(1,2,3);
+       }
+       if(squeres[4]==squeres[5] && squeres[5]==squeres[6] && squeres[4]!="")
+       {
+       	alert('plyer '+squeres[4]+' barvo');
+       	resst(4,5,6);
+       }
+        if(squeres[7]==squeres[8] && squeres[8]==squeres[9] && squeres[7]!="")
+       {
+       	alert('plyer '+squeres[7]+' barvo');
+       	resst(7,8,9);
+       }
+       if(squeres[1]==squeres[4] && squeres[4]==squeres[7] && squeres[1]!="")
+       {
+       	alert('plyer '+squeres[7]+' barvo');
+       	resst(1,4,7);
+       }
+        if(squeres[2]==squeres[5] && squeres[5]==squeres[8] && squeres[2]!="")
+       {
+       	alert('plyer '+squeres[7]+' barvo');
+       	resst(2,5,8);
+       }
+        if(squeres[3]==squeres[6] && squeres[6]==squeres[9] && squeres[3]!="")
+       {
+       	alert('plyer '+squeres[7]+' barvo');
+       	resst(3,6,9);
+       }
+        if(squeres[1]==squeres[5] && squeres[5]==squeres[9] && squeres[1]!="")
+       {
+       	alert('plyer '+squeres[7]+' barvo');
+       	resst(1,5,9);
+       }
+        if(squeres[3]==squeres[5] && squeres[5]==squeres[7] && squeres[3]!="")
+       {
+       	alert('plyer '+squeres[7]+' barvo ');
+       	resst(3,5,7);
+       }
+        
+        
+       
+       
+	 }
+     function insert(id)
+     {
+          var s=document.getElementById(id);
+     	if(turn && s.innerHTML=="")
+     	{
+     	s.innerHTML="X";
+     	turn=!turn;
+     	}
+        else if(!turn && s.innerHTML=="")
+        {
+        s.innerHTML="O";
+        turn=!turn;
+        }
+     	chekwinner();
+        
+     }
+	
+      
+</script>
+	<div class="wrapper">
+		<div class="square" id="A1" onclick="insert(this.id)"></div> 
+		<div class="square" id="A2" onclick="insert(this.id)"></div> 
+		<div class="square" id="A3" onclick="insert(this.id)"></div> 
+		<div class="square" id="A4" onclick="insert(this.id)"></div> 
+		<div class="square" id="A5" onclick="insert(this.id)"></div> 
+		<div class="square" id="A6" onclick="insert(this.id)"></div> 
+		<div class="square" id="A7" onclick="insert(this.id)"></div> 
+		<div class="square" id="A8" onclick="insert(this.id)"></div> 
+		<div class="square" id="A9" onclick="insert(this.id)"></div>  
+	</div>
+
+</body>
+
+</html>
